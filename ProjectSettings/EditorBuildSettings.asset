@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DonjonDeLOie/Scenes/DonjonDeLOie.unity
+    guid: ff3f5f489cb8cd941a42c7cb2815194a
+  - enabled: 0
     path: Assets/DesDuDragon/Scenes/LesDesDuDragon.unity
     guid: e659c3c1402586c46ae9e1d65ac0451f
   - enabled: 1

@@ -1,0 +1,678 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b91d7367513b7c4a674bde46594fef, type: 3}
+  m_Name: DDCatalogue
+  m_EditorClassIdentifier: Assembly-CSharp::DonjonDeLOie.Cartes.DDCatalogue
+  Objets:
+  - Id: dague
+    Nom: Dague
+    Description: +1 en attaque.
+    Type: 0
+    Effet: 0
+    Prix: 10
+    Bonus: 1
+    SeulementEnVille: 0
+  - Id: epee
+    Nom: "\xC9p\xE9e courte"
+    Description: +2 en attaque.
+    Type: 0
+    Effet: 0
+    Prix: 25
+    Bonus: 2
+    SeulementEnVille: 0
+  - Id: hache
+    Nom: Hache de guerre
+    Description: +3 en attaque.
+    Type: 0
+    Effet: 0
+    Prix: 45
+    Bonus: 3
+    SeulementEnVille: 0
+  - Id: runique
+    Nom: "\xC9p\xE9e runique"
+    Description: +4 en attaque.
+    Type: 0
+    Effet: 0
+    Prix: 70
+    Bonus: 4
+    SeulementEnVille: 0
+  - Id: marteau
+    Nom: Marteau-tonnerre
+    Description: +5 en attaque.
+    Type: 0
+    Effet: 0
+    Prix: 100
+    Bonus: 5
+    SeulementEnVille: 0
+  - Id: lamedragon
+    Nom: Lame du Dragon
+    Description: "+7 en attaque. Forg\xE9e \xE0 Valcreux seulement."
+    Type: 0
+    Effet: 0
+    Prix: 150
+    Bonus: 7
+    SeulementEnVille: 1
+  - Id: cuir
+    Nom: Armure de cuir
+    Description: "\u22121 aux d\xE9g\xE2ts subis."
+    Type: 1
+    Effet: 0
+    Prix: 15
+    Bonus: 1
+    SeulementEnVille: 0
+  - Id: mailles
+    Nom: Cotte de mailles
+    Description: "\u22122 aux d\xE9g\xE2ts subis."
+    Type: 1
+    Effet: 0
+    Prix: 35
+    Bonus: 2
+    SeulementEnVille: 0
+  - Id: plates
+    Nom: Armure de plates
+    Description: "\u22123 aux d\xE9g\xE2ts subis."
+    Type: 1
+    Effet: 0
+    Prix: 65
+    Bonus: 3
+    SeulementEnVille: 0
+  - Id: ecailles
+    Nom: "\xC9cailles de dragon"
+    Description: "\u22124 aux d\xE9g\xE2ts subis. Valcreux seulement."
+    Type: 1
+    Effet: 0
+    Prix: 110
+    Bonus: 4
+    SeulementEnVille: 1
+  - Id: amulette
+    Nom: Amulette de garde
+    Description: "Bloque la prochaine mal\xE9diction, rune ou sort re\xE7u, puis
+      se brise."
+    Type: 2
+    Effet: 1
+    Prix: 30
+    Bonus: 0
+    SeulementEnVille: 0
+  - Id: bottes
+    Nom: "Bottes de c\xE9l\xE9rit\xE9"
+    Description: "+1 \xE0 chaque jet de d\xE9placement."
+    Type: 2
+    Effet: 2
+    Prix: 45
+    Bonus: 1
+    SeulementEnVille: 0
+  - Id: anneau
+    Nom: Anneau de vigueur
+    Description: +4 PV maximum.
+    Type: 2
+    Effet: 3
+    Prix: 35
+    Bonus: 4
+    SeulementEnVille: 0
+  - Id: potion
+    Nom: Potion de soin
+    Description: Rend 5 PV.
+    Type: 3
+    Effet: 4
+    Prix: 8
+    Bonus: 5
+    SeulementEnVille: 0
+  - Id: elixir
+    Nom: "\xC9lixir de vie"
+    Description: Rend tous les PV.
+    Type: 3
+    Effet: 5
+    Prix: 20
+    Bonus: 0
+    SeulementEnVille: 0
+  - Id: loups
+    Nom: "Pi\xE8ge \xE0 loups"
+    Description: La victime perd 2 PV et passe son prochain tour.
+    Type: 4
+    Effet: 6
+    Prix: 12
+    Bonus: 2
+    SeulementEnVille: 0
+  - Id: fosse
+    Nom: "Fosse \xE0 pieux"
+    Description: La victime perd 4 PV.
+    Type: 4
+    Effet: 7
+    Prix: 10
+    Bonus: 4
+    SeulementEnVille: 0
+  - Id: filet
+    Nom: Filet du voleur
+    Description: "Vole 15 or \xE0 la victime, pour vous."
+    Type: 4
+    Effet: 8
+    Prix: 15
+    Bonus: 15
+    SeulementEnVille: 0
+  - Id: rune
+    Nom: Rune d'oubli
+    Description: La victime perd 1 niveau.
+    Type: 4
+    Effet: 9
+    Prix: 40
+    Bonus: 1
+    SeulementEnVille: 0
+  - Id: malediction
+    Nom: "Parchemin de mal\xE9diction"
+    Description: "La cible perd 1 niveau, sauf si elle r\xE9siste (5+ au d\xE9)."
+    Type: 5
+    Effet: 10
+    Prix: 40
+    Bonus: 1
+    SeulementEnVille: 0
+  - Id: foudre
+    Nom: Parchemin de foudre
+    Description: La cible perd 5 PV (moins son armure).
+    Type: 5
+    Effet: 11
+    Prix: 20
+    Bonus: 5
+    SeulementEnVille: 0
+  - Id: lenteur
+    Nom: Parchemin de lenteur
+    Description: "Le prochain jet de d\xE9placement de la cible est divis\xE9 par
+      deux."
+    Type: 5
+    Effet: 12
+    Prix: 12
+    Bonus: 0
+    SeulementEnVille: 0
+  - Id: rappel
+    Nom: Parchemin de rappel
+    Description: "Vous t\xE9l\xE9porte sur Valcreux ou un sanctuaire."
+    Type: 5
+    Effet: 13
+    Prix: 15
+    Bonus: 0
+    SeulementEnVille: 0
+  Monstres:
+  - Id: rat
+    Nom: "Rat g\xE9ant"
+    Description: Gros comme un chien, plus vorace encore.
+    Force: 1
+    Degats: 2
+    Or: 5
+    XP: 1
+    Zones: 0000000001000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: gobelin
+    Nom: Gobelin
+    Description: "Petit, vicieux, toujours une lame rouill\xE9e \xE0 la main."
+    Force: 2
+    Degats: 2
+    Or: 7
+    XP: 1
+    Zones: 01000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: loup
+    Nom: Loup gris
+    Description: Il chasse en silence entre les troncs.
+    Force: 3
+    Degats: 3
+    Or: 6
+    XP: 2
+    Zones: 0100000000000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: araignee
+    Nom: "Araign\xE9e g\xE9ante"
+    Description: Huit yeux, huit pattes, aucun scrupule.
+    Force: 4
+    Degats: 3
+    Or: 10
+    XP: 2
+    Zones: 0100000002000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: gelee
+    Nom: "Gel\xE9e verte"
+    Description: Elle dissout tout ce qu'elle avale, armure comprise.
+    Force: 5
+    Degats: 4
+    Or: 9
+    XP: 3
+    Zones: 02000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: squelette
+    Nom: Squelette
+    Description: Un ancien soldat qui ne sait pas qu'il est mort.
+    Force: 5
+    Degats: 3
+    Or: 11
+    XP: 3
+    Zones: 0200000003000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: orc
+    Nom: Orc pillard
+    Description: Brute couverte de cicatrices, hache au poing.
+    Force: 6
+    Degats: 4
+    Or: 14
+    XP: 3
+    Zones: 0400000001000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: spectre
+    Nom: Spectre
+    Description: "Une plainte glac\xE9e qui traverse les murs."
+    Force: 7
+    Degats: 4
+    Or: 16
+    XP: 4
+    Zones: 03000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: troll
+    Nom: Troll des pics
+    Description: "Il se r\xE9g\xE9n\xE8re plus vite qu'on ne le frappe."
+    Force: 8
+    Degats: 5
+    Or: 20
+    XP: 5
+    Zones: 04000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: wyverne
+    Nom: Wyverne
+    Description: Cousine du dragon, le venin en plus.
+    Force: 10
+    Degats: 6
+    Or: 28
+    XP: 6
+    Zones: 0400000005000000
+    Boss: 0
+    Errant: 0
+    Apparence: 
+  - Id: dragon
+    Nom: Ignathor, le Dragon rouge
+    Description: "Le seigneur de l'antre. Son tr\xE9sor est l\xE9gendaire."
+    Force: 12
+    Degats: 7
+    Or: 80
+    XP: 8
+    Zones: 05000000
+    Boss: 1
+    Errant: 0
+    Apparence: 
+  - Id: dragonnoie
+    Nom: Le Dragonnoie
+    Description: "Mi-oie, mi-dragon, enti\xE8rement mauvais. Il fond sur les aventuriers
+      et leur arrache leur bourse. Qui le terrasse gagne la partie."
+    Force: 9
+    Degats: 0
+    Or: 0
+    XP: 0
+    Zones: 
+    Boss: 0
+    Errant: 1
+    Apparence: 
+  Classes:
+  - Classe: 0
+    Nom: Guerrier
+    Passif: "V\xE9t\xE9ran : +1 en combat contre les monstres."
+    Description: "Solide et bien prot\xE9g\xE9, il nettoie les routes des b\xEAtes
+      qui les infestent."
+    Attaque: 3
+    Defense: 1
+    Vie: 11
+  - Classe: 1
+    Nom: Mage
+    Passif: "Arcaniste : parchemins \xE0 moiti\xE9 prix, sorts plus durs \xE0 esquiver,
+      +1 contre les monstres (trait de feu)."
+    Description: Fragile, mais ses parchemins font trembler les plus hauts niveaux.
+    Attaque: 3
+    Defense: 0
+    Vie: 9
+  - Classe: 2
+    Nom: Voleur
+    Passif: "Ombre : pi\xE8ges \xE0 moiti\xE9 prix, ne d\xE9clenche jamais un pi\xE8ge,
+      +5 or sur les tr\xE9sors."
+    Description: "Il s\xE8me le plateau de pi\xE8ges et se faufile entre ceux des
+      autres."
+    Attaque: 3
+    Defense: 0
+    Vie: 10
+  - Classe: 3
+    Nom: Clerc
+    Passif: "Foi : +2 PV au d\xE9but de chaque tour, r\xE9siste aux mal\xE9dictions."
+    Description: "B\xE9ni des dieux, il se rel\xE8ve de tout et brave les cases maudites."
+    Attaque: 3
+    Defense: 1
+    Vie: 11
+  - Classe: 4
+    Nom: "R\xF4deur"
+    Passif: "Pisteur : apr\xE8s son jet, avance d'une case de plus ou de moins s'il
+      le veut."
+    Description: "Il choisit o\xF9 il pose le pied : tr\xE9sors, marchands, proies."
+    Attaque: 2
+    Defense: 0
+    Vie: 10
+  - Classe: 5
+    Nom: Barbare
+    Passif: "Rage : +2 en attaque quand il lui reste la moiti\xE9 de ses PV ou moins."
+    Description: "Une force brute ; bless\xE9, il devient terrifiant."
+    Attaque: 3
+    Defense: 0
+    Vie: 13
+  Evenements:
+  - Id: fontaine
+    Nom: "Fontaine b\xE9nie"
+    Texte: "Fontaine b\xE9nie : l'eau claire referme les plaies de {joueur}."
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 2
+      Valeur: 5
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: bourse
+    Nom: "Bourse oubli\xE9e"
+    Texte: "Bourse oubli\xE9e au bord du chemin !"
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 1
+      Valeur: 12
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: tirelaine
+    Nom: Tire-laine
+    Texte: Un tire-laine bouscule {joueur} et file avec sa bourse.
+    Ton: 2
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 1
+      Valeur: -10
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: barde
+    Nom: Barde errant
+    Texte: Un barde chante les exploits de {joueur}.
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 4
+      Valeur: 1
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: orage
+    Nom: Orage arcanique
+    Texte: Orage arcanique ! La foudre frappe tous les aventuriers.
+    Ton: 2
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 2
+      Valeur: -2
+      Parametre: 
+      Cible: 1
+      Chance: 100
+    Choix: []
+  - Id: vent
+    Nom: Vent favorable
+    Texte: 'Vent favorable : {joueur} avance de 3 cases.'
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 6
+      Valeur: 3
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: eboulement
+    Nom: "\xC9boulement"
+    Texte: "\xC9boulement ! {joueur} recule de 2 cases."
+    Ton: 2
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 7
+      Valeur: 2
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    - Type: 2
+      Valeur: -1
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: chevalier
+    Nom: Chevalier errant
+    Texte: "Un chevalier errant b\xE9nit l'arme de {joueur} : +2 \xE0 son prochain
+      combat contre un monstre."
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 19
+      Valeur: 2
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: colporteur
+    Nom: Colporteur
+    Texte: "Un colporteur ouvre sa carriole : tout \xE0 \u221230 % !"
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 12
+      Valeur: 30
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: piece
+    Nom: "Pi\xE8ce maudite"
+    Texte: "Une pi\xE8ce d'or brille dans la boue\u2026 maudite ! +20 or, mais \u22122
+      en attaque pendant 3 tours."
+    Ton: 2
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 1
+      Valeur: 20
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    - Type: 16
+      Valeur: 3
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: ermite
+    Nom: Vieil ermite
+    Texte: "Un vieil ermite a des missions \xE0 confier."
+    Ton: 4
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 13
+      Valeur: 0
+      Parametre: Le vieil ermite
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: portail
+    Nom: Portail instable
+    Texte: "Un portail instable aspire {joueur}\u2026"
+    Ton: 0
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 8
+      Valeur: 1
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: fees
+    Nom: "Festin des f\xE9es"
+    Texte: "Festin des f\xE9es : {joueur} retrouve toutes ses forces."
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 3
+      Valeur: 0
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: coffrepiege
+    Nom: "Coffre pi\xE9g\xE9"
+    Texte: "Coffre pi\xE9g\xE9 ! Une aiguille empoisonn\xE9e, mais 15 or \xE0 l'int\xE9rieur."
+    Ton: 0
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 1
+      Valeur: 15
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    - Type: 2
+      Valeur: -3
+      Parametre: 
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: parchemin
+    Nom: Parchemin perdu
+    Texte: '{joueur} trouve un parchemin dans les herbes.'
+    Ton: 1
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 14
+      Valeur: 10
+      Parametre: Parchemin
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: gobelins
+    Nom: Embuscade gobeline
+    Texte: "Des gobelins surgissent des fourr\xE9s !"
+    Ton: 3
+    DansLaPioche: 1
+    Poids: 10
+    Zones: 
+    Effets:
+    - Type: 11
+      Valeur: 0
+      Parametre: gobelin
+      Cible: 0
+      Chance: 100
+    Choix: []
+  - Id: idole
+    Nom: "Idole oubli\xE9e"
+    Texte: Une idole couverte de mousse veille au bord du chemin.
+    Ton: 0
+    DansLaPioche: 1
+    Poids: 8
+    Zones: 
+    Effets: []
+    Choix:
+    - Libelle: Prier (10 or d'offrande)
+      Aide: "\u221210 or, +1 XP, et vos mal\xE9dictions sont lev\xE9es."
+      Effets:
+      - Type: 1
+        Valeur: -10
+        Parametre: 
+        Cible: 0
+        Chance: 100
+      - Type: 4
+        Valeur: 1
+        Parametre: 
+        Cible: 0
+        Chance: 100
+      - Type: 21
+        Valeur: 0
+        Parametre: 
+        Cible: 0
+        Chance: 100
+    - Libelle: Piller ses gemmes
+      Aide: "+25 or\u2026 mais l'idole maudit les voleurs (1D6)."
+      Effets:
+      - Type: 1
+        Valeur: 25
+        Parametre: 
+        Cible: 0
+        Chance: 100
+      - Type: 20
+        Valeur: 0
+        Parametre: 
+        Cible: 0
+        Chance: 100
+    - Libelle: Passer son chemin
+      Aide: Il ne se passe rien.
+      Effets: []
+  Reglages:
+    XPParNiveau: 2
+    OrDepart: 20
+    SoldeVille: 10
+    XPVille: 1
+    TailleSac: 5
+    AccessoiresMax: 2
+    PiegesMaxParJoueur: 3
+    DragonnoieActif: 1
+    ToursEntreEnvols: 3

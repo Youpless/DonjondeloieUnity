@@ -1,0 +1,221 @@
+DONJON DE L'OIE — jeu de plateau « party game » en voxels, pour Unity 6.3
+=========================================================================
+
+INSTALLATION — trois étapes
+Vous avez déjà la v3b qui marche ? Faites seulement l'étape 2 avec le paquet v4 : il remplace les mêmes fichiers et en
+ajoute de nouveaux (la scène reste la même, inutile de la refaire).
+1. Supprimez toute ancienne version du jeu : dans la fenêtre Project d'Unity, clic droit › Delete sur les dossiers
+   « DesDuDragon » et « LesDesDuDragon_Unity6.3 » s'ils sont dans Assets. (Deux copies du jeu dans un même projet
+   donnent des centaines d'erreurs « already contains a definition ».)
+2. Unity ouvert sur votre projet, double-cliquez DonjonDeLOie_v4.unitypackage (ou menu Assets › Import Package ›
+   Custom Package…), puis cliquez « Import ». Tout se range tout seul dans Assets/DonjonDeLOie.
+   Si la fenêtre d'import reste vide : fermez-la, décompressez DonjonDeLOie_v4_dossier.zip et glissez le dossier
+   DonjonDeLOie qu'il contient sur « Assets », dans la fenêtre Project. (L'une OU l'autre méthode, jamais les deux.)
+3. À la fin de la compilation, une fenêtre propose « Préparer le jeu » : cliquez, puis appuyez sur Play. Si Unity
+   demande d'enregistrer une ancienne scène (« LesDesDuDragon »), répondez « Don't Save ».
+   (Plus tard : menu Donjon de l'Oie › Jouer, qui prépare le jeu s'il le faut et le lance.)
+Prochaines versions : importez le nouveau paquet par-dessus, il remplace les mêmes fichiers.
+Projet conseillé : Unity 6.3, modèle « Universal 3D » (URP). Le jeu marche aussi sans URP (modèle « 3D »), sans ombres
+douces ni post-traitement. Rien d'autre à importer : l'île, les héros, les monstres, les décors, l'interface, les sons et
+la musique sont fabriqués au lancement (une à deux secondes de chargement). Les paquets « uGUI » et « Input System »
+d'un projet Unity 6 neuf suffisent ; l'ancien gestionnaire d'entrées marche aussi.
+« Préparer le jeu » (ou Donjon de l'Oie › Générer le jeu) crée la scène Assets/DonjonDeLOie/Scenes/DonjonDeLOie.unity,
+la met en tête de la build et règle les ombres d'URP pour voir tout le plateau ombré.
+
+LE JEU
+• 2 à 6 aventuriers, humains (on se passe la souris à son tour, sur le même ordinateur) ou bots, réglés dans le salon.
+• Une boucle de 40 cases autour de l'île, à travers Valcreux, le Bois des Murmures, le Marais Putride, les Cryptes
+  d'Ombrelune et les Pics de Braise, et trois raccourcis plus courts mais plus dangereux (le dernier passe par l'antre
+  d'Ignathor, le dragon rouge).
+• À son tour : utiliser des objets du sac (potions, pièges, parchemins), puis lancer le dé (1D6) OU tendre une embuscade
+  (sa case et une case voisine : le premier qui y entre est arrêté et doit vous affronter, avec +2 pour vous).
+• Duel entre joueurs : attaque + 1D3 chacun ; le perdant perd un niveau (deux si l'écart atteint 5) et de l'or.
+• Monstres (11, dont le dragon) : attaque + 1D6 contre leur force + 1D6 ; on peut fuir.
+• LE DRAGONNOIE, mi-oie, mi-dragon, se pose au hasard sur l'île. Au début d'un tour de table sur trois, il prend une
+  grande envolée vers une autre case (jamais la case de départ) et défie tous ceux qui s'y trouvent. En passant sur sa
+  case, on choisit : l'attaquer (la course s'arrête là) ou continuer sa route. En s'arrêtant sur sa case (dé, recul,
+  téléportation, fuite, rappel), il faut l'affronter. Combat comme contre un monstre (force 9) : vaincu, on perd tout son
+  or, jamais de niveau ; VAINQUEUR, ON GAGNE LA PARTIE. Sous la chronique, un encart donne sa force, sa case et le
+  tour de son prochain envol (un clic : la caméra va le voir).
+• Cases : Valcreux (boutique complète, soins, quêtes, +10 or et +1 XP à chaque passage), monstre, trésor, événement
+  (17 événements, dont un à choix), malédiction, sanctuaire, marchand, taverne (quêtes), antre du dragon.
+• LA NUIT tombe à la fin de chaque cinquième tour de table (après les tours 5, 10, 15… ; réglable). Un seul événement
+  par nuit, tiré parmi ceux qui peuvent avoir lieu :
+  – le voleur : un aventurier (qui a au moins 2 or) se fait voler la moitié de son or pendant son sommeil ;
+  – le trou de ver : deux aventuriers sur deux cases différentes échangent leur place ;
+  – la bonne nuit : un aventurier dort bien et gagne un niveau (jamais celui de la victoire) ;
+  – l'arène du diable : elle surgit au-dessus de l'île et tous s'affrontent en duels, dans un ordre tiré au sort ; le
+    vainqueur de chaque duel reste dans l'arène et affronte le suivant. Chaque défaite coûte un niveau ; le dernier
+    vainqueur gagne un niveau (celui de la victoire compris) et 25 or. Deux égalités de suite se relancent, à la
+    troisième le tenant du titre garde l'arène.
+  Sous la chronique, un encart dit quand tombera la prochaine nuit. Une partie gagnée en pleine nuit (le champion de
+  l'arène atteint le niveau visé) : chacun regagne sa case et le jour se lève avant la fête de la victoire.
+• QUÊTES — une seule à la fois (en prendre une autre abandonne la première). À Valcreux et dans les tavernes, jusqu'à
+  quatre propositions : un lieu à atteindre, une chasse (ou des ennemis à vaincre), et deux parmi :
+  – le guet-apens : tendre une embuscade qui surprend un aventurier (gagner le duel n'est pas exigé) ;
+  – le défi : provoquer en duel l'aventurier désigné (rejoindre sa case ; gagner ou perdre, la quête est faite) ;
+  – l'avis de recherche : retrouver un évadé caché au marché de Valcreux (sur une carte à plusieurs villes : la ville
+    nommée par l'avis). C'est un MINI-JEU : dès que le héros y est avec cette quête (en passant, en s'y arrêtant, en y
+    revenant par un parchemin de rappel, au début de son tour ou aussitôt la quête acceptée), la caméra zoome sur la
+    ville, qui se floute, et le marché surgit en diorama au-dessus des toits : une rue, des étals,
+    une vingtaine d'habitants dont deux ou trois sosies. L'évadé se cache derrière des caisses, des tonneaux ou des
+    sacs : seul le haut de sa tête dépasse (du nez aux cheveux). Son avis de recherche est affiché à gauche (et sur le
+    panneau du marché). 30 secondes pour cliquer sur son visage ; une erreur coûte 3 secondes ; la molette zoome vers
+    la souris. Trouvé : quête accomplie ; sinon il s'enfuit et la quête est perdue. Un bot le trouve un peu plus
+    d'une fois sur deux.
+• Boutique : 6 armes, 4 armures, 3 accessoires, 2 potions, 4 pièges, 4 parchemins (malédiction, foudre, lenteur, rappel).
+• Six classes : Guerrier, Mage, Voleur, Clerc, Rôdeur, Barbare, chacune avec son talent.
+• On gagne des niveaux (2 XP par niveau) ; on en perd par les duels, les malédictions, les runes et les sorts.
+  Le premier au niveau 10 (réglable de 3 à 10) gagne — à moins qu'un aventurier ne terrasse le Dragonnoie avant.
+
+OUTILS D'ÉDITION (menu Donjon de l'Oie)
+1. CATALOGUE — menu « Catalogue (équipements, monstres, événements)… ».
+   La première fois, cliquez « Créer le catalogue » : il copie les valeurs d'origine dans
+   Assets/DonjonDeLOie/Resources/DDCatalogue.asset, que le jeu lit à chaque lancement (supprimez ce fichier pour revenir
+   aux valeurs du code). Cinq onglets :
+   • Équipements : nom, type, effet, prix, bonus (le sens du bonus est expliqué sous le champ), vente en ville seulement.
+     Ajouter, dupliquer, supprimer, réordonner. Les objets ajoutés apparaissent dans les boutiques et les coffres.
+   • Monstres : force, dégâts, or, XP, zones, boss de l'antre, apparence (un nouveau monstre reprend le modèle 3D d'un
+     monstre existant). Les chances de victoire d'un héros sont calculées sous la fiche. La fiche marquée ◆ est le
+     Dragonnoie (case « Errant ») : seule sa force compte.
+   • Classes : attaque, défense, PV et textes des six héros (leurs talents restent écrits dans les règles).
+   • Événements : texte (« {joueur} » = le nom du héros), ton, fréquence, zones, une suite d'effets (or, PV, XP, niveau,
+     avancer, reculer, téléporter, combat, boutique, quêtes, objet, faiblesse, immobiliser, lenteur, bénédiction,
+     malédiction…), chacun avec sa cible (le joueur, tous, les autres, le meneur, le dernier) et sa probabilité ; et, si
+     on veut, un choix proposé au joueur (chaque option a ses propres effets ; une option qui coûte trop d'or est grisée).
+     Un résumé en clair s'affiche en bas. Décochez « Dans la pioche » pour un événement réservé à certaines cases.
+   • Réglages : XP par niveau, or de départ, solde et XP de la ville, taille du sac, accessoires, pièges par joueur ;
+     Dragonnoie actif ou non, et le nombre de tours de table entre deux envols (3 par défaut) ; la nuit (active ou non,
+     tours entre deux nuits, les quatre événements à cocher, l'or du vainqueur de l'arène) ; la durée du mini-jeu de
+     l'évadé (30 secondes par défaut).
+   Tout s'annule avec Ctrl+Z. En Play, « Appliquer en jeu » met les valeurs en service tout de suite.
+
+2. NOUVELLE CARTE — menu « Nouvelle carte… » : un nom, un point de départ (une boucle simple de 8 à 60 cases, ou une
+   copie de la carte d'origine), et « Créer la carte ». Une scène prête à éditer est créée et enregistrée dans
+   Assets/DonjonDeLOie/Cartes/<nom>/ : le jeu, et un objet « Carte » dont chaque case est un objet de la scène.
+   • Déplacez les cases avec l'outil Déplacer (W). Flèche crème : la grande route ; flèche orange : un embranchement ;
+     cadre jaune : le départ.
+   • Inspecteur d'une case : type, zone, nom du lieu (cible des quêtes de voyage), bâtiment posé à côté (automatique,
+     aucun, ou au choix), nom du chemin s'il ouvre un embranchement, et les boutons « Ajouter une case après »,
+     « Raccourci vers l'intérieur », « Détour vers l'extérieur », « Définir comme départ », « Supprimer la case (en
+     recousant le chemin) », case précédente / suivante. Plusieurs cases sélectionnées : type, zone et mode pour toutes ;
+     deux cases sélectionnées (Ctrl + clic) : un bouton pour les relier.
+   • Inspecteur de l'objet « Carte » : nom, description, niveau conseillé, largeur de terre, décor automatique et sa
+     densité, bâtiments automatiques, graine du relief ; la vérification de la carte EN DIRECT (cases bloquées,
+     culs-de-sac, événements inconnus, cases qui se chevauchent…) ; « Ajouter une case », « Répartir les cases »
+     (intervalles égaux), poser un décor à la main (tour, ruine, arbre… puis W/E/R pour placer, tourner, agrandir) ;
+     « Aperçu de l'île » (l'île du jeu construite dans la scène, jamais enregistrée ; les cases se
+     dessinent sur son relief et se sélectionnent à travers elle) ; « Ajouter la carte au jeu »
+     (Resources/Cartes : la carte est alors proposée dans le salon de toutes les scènes) ; « Jouer cette carte ».
+   • Play dans la scène d'une carte : la partie se joue sur cette carte. Dans le salon, le bouton « Carte » fait défiler
+     les cartes disponibles (celle de la scène, la carte d'origine, celles ajoutées au jeu) et propose leur niveau conseillé.
+   • Sur le composant DDJeu, le champ « Carte » choisit la carte proposée d'abord.
+
+3. ÉVÉNEMENTS D'UNE CASE — dans l'inspecteur d'une case, rubrique « Événements de la case » :
+   • Mode Standard : l'effet du type ; une case « Événement » tire dans sa propre liste si elle en a une.
+   • Mode Remplacer : la case joue un événement de sa liste au lieu de l'effet de son type.
+   • Mode Ajouter : l'effet du type, puis un événement de la liste.
+   « Ajouter un événement » choisit dans le catalogue ; « Modifier » ouvre l'événement dans la fenêtre du catalogue ;
+   « Créer un nouvel événement… » en crée un, réservé à cette case, et l'ouvre pour le régler. Renommer l'identifiant
+   d'un événement dans le catalogue met à jour les cases de la scène ouverte et les cartes ajoutées au jeu.
+
+COMMANDES
+Souris : tout se joue aux boutons ; on peut aussi cliquer directement une case lumineuse quand il faut en choisir une.
+Molette : zoom · clic droit glissé ou flèches gauche/droite : tourner · clic milieu glissé : déplacer la vue ·
+Espace : tout le plateau · Échap : menu (pause, règles, volumes).
+Mini-jeu de l'évadé : clic gauche sur un visage · molette : zoomer vers la souris · Échap : pause (le temps s'arrête).
+
+OÙ RÉGLER
+• Équilibrage et événements : la fenêtre du catalogue (sans toucher au code). Valeurs d'origine : Runtime/Regles/Donnees.cs
+  et Runtime/Regles/Evenements.cs.
+• Cartes : l'éditeur de cartes. La carte d'origine est écrite dans Runtime/Regles/Plateau.cs ; l'île suit automatiquement
+  n'importe quelle carte (Runtime/Monde/IleModele*.cs).
+• Bots : Runtime/Regles/IA.cs.
+• Lumière et post-traitement : Runtime/Monde/Ambiance.cs.
+• Modèles voxel : Runtime/Modeles/*.cs (héros, monstres, décors, bâtiments, figurines des cases).
+
+ORGANISATION DU CODE
+Runtime/Regles   les règles, sans Unity : la partie produit des « signaux » (pas, dé, combat, question…), les bots répondent
+                 aux mêmes questions que les humains.
+Runtime/Voxel    modèles en voxels, maillage avec occlusion ambiante, couleurs, icônes en pixel art.
+Runtime/Modeles  tous les modèles du jeu, construits en code.
+Runtime/Monde    l'île, les pions, les dés, la caméra, les effets, l'ambiance, les sons.
+Runtime/Interface l'interface (uGUI construite en code).
+Runtime/Pilote   DDJeu : le chef d'orchestre (DDJeu.Cartes : les cartes jouables) ; DDInput : souris et clavier.
+Runtime/Cartes   le catalogue (DDCatalogue), les cartes enregistrées (DDCarte) et les marqueurs de l'éditeur de cartes
+                 (DDEditeurCarte, DDCaseMarqueur, DDDecorMarqueur).
+Runtime/Regles   …dont Evenements.cs (événements en données), Carte.cs (carte en données, vérification) et
+                 Partie.Dragonnoie.cs (le Dragonnoie). Sa mise en scène : Pilote/DDJeu.Dragonnoie.cs ; son modèle :
+                 Modeles/MonstresModeles.Dragonnoie.cs.
+                 La nuit : Regles/Partie.Nuit.cs ; sa mise en scène (lumière de lune, arène) : Pilote/DDJeu.Nuit.cs et
+                 Monde/Ambiance.cs ; l'arène : Modeles/DecorsBatiments.Arene.cs.
+                 Les quêtes : Regles/Partie.Quetes.cs et IA.Quetes.cs (les bots). Le mini-jeu de l'évadé :
+                 Pilote/DDJeu.Evade.cs (caméra, flou, déroulé), Monde/Diorama*.cs (le marché, la foule, les cachettes),
+                 Interface/EcranEvade.cs (l'avis de recherche, le sablier), Modeles/HerosModeles.Habitants.cs (les
+                 habitants et leur portrait), Modeles/DecorsBatiments.Marche.cs (étals, caisses, tonneaux, sacs…).
+Resources        trois shaders (voxels éclairés, lueurs, effets), le catalogue et le dossier Cartes une fois créés.
+Editor           le générateur, le premier lancement (DDPremierLancement : « Préparer le jeu », ancienne version
+                 repérée), la fenêtre du catalogue, la fenêtre « Nouvelle carte », les inspecteurs des cartes et
+                 l'aperçu de l'île.
+
+VÉRIFIÉ AVANT LIVRAISON (hors Unity)
+• Le code compile de trois façons contre des imitations d'Unity : éditeur + Input System, jeu exporté + ancien
+  gestionnaire d'entrées, scripts d'éditeur. Les appels à l'API ont été relus contre les sources d'Unity 6.3, d'URP 17.3
+  et de l'Input System.
+• Les trois shaders compilent dans toutes leurs variantes (188 compilations) avec le compilateur DXC de Microsoft contre
+  la bibliothèque officielle d'URP 17.3, en D3D11 et en Vulkan (Forward+ compris).
+• Règles : des milliers de parties simulées entre bots, sans erreur. Sur la carte d'origine, à 4 joueurs, une partie dure
+  en moyenne 25 tours de table, et un tiers environ se gagnent en terrassant le Dragonnoie (vers le 21e tour) ; à
+  6 joueurs, un peu plus. Sur une petite carte, on le croise plus souvent (plus de la moitié des victoires) : sa force et
+  ses envols se règlent dans le catalogue. Sans Dragonnoie, une partie dure 28 tours en moyenne.
+• Le jeu complet (DDJeu) a tourné hors Unity, image par image : titre, salon, parties entières à 2, 4 et 6 joueurs (bots,
+  humains qui cliquent au hasard), victoire, « Rejouer », retour au menu — aucune exception, aucun objet qui s'accumule.
+• Outils d'édition (version 2) : les fenêtres et inspecteurs ont tourné hors Unity contre une imitation de l'éditeur :
+  création du catalogue, chaque onglet, ajout / duplication / suppression, chacun des 22 types d'effet, création d'une
+  carte, ajout de cases, raccourci, suppression en recousant, liaison de deux cases, événement créé pour une case,
+  renommage propagé, décor posé, aperçu de l'île, ajout au jeu — puis 40 parties complètes sur la carte ainsi construite
+  avec le catalogue modifié, sans erreur. Le jeu complet a aussi tourné sur une carte d'éditeur présente dans la scène
+  et sur une carte choisie dans le salon. Une relecture indépendante de ces outils contre les sources d'Unity 6.3 n'a
+  trouvé aucune erreur de compilation ; ses remarques (champ en cours de frappe validé sur le mauvais élément, boîtes
+  de dialogue, maillages libérés au changement de carte, aperçu non cliquable) sont corrigées.
+• Le Dragonnoie (version 3) : simulations sur trois cartes (envols tous les 3 tours, combats sur sa case seulement,
+  jamais d'or négatif), 1 800 parties aux réponses tirées au hasard (aucun arrêt sur sa case sans combat), parties
+  complètes hors Unity avec humains et bots (arrivée, envols, rencontre en passant, combats, victoire), modèle vérifié
+  sous quatre angles et en pose d'action. Une relecture indépendante a trouvé cinq défauts, tous corrigés : arrêt sur
+  sa case après un piège ou une embuscade sans l'affronter, caméra qui ne suivait plus le héros après « Continuer sa
+  route », Dragonnoie combattu comme un monstre ordinaire par un événement, battements d'ailes ralentis, encart qui
+  chevauchait la chronique sur les écrans 4:3.
+• Installation (version 3) : le paquet a été ouvert comme le fait l'import d'Unity ; il installe exactement les fichiers
+  du jeu dans Assets/DonjonDeLOie, chacun avec un identifiant fixe. Son en-tête suit désormais celui des paquets
+  exportés par Unity (archive intérieure « archtemp.tar ») : le premier paquet v3, qui ne le faisait pas, ouvrait une
+  fenêtre d'import vide sous Windows. Le zip de secours contient les mêmes fichiers avec les mêmes identifiants. La fenêtre du premier lancement a tourné hors Unity :
+  anciennes versions repérées et mises à la corbeille, jeu préparé d'un clic, aucune question au chargement suivant.
+• La nuit et les quêtes (version 4) : simulations de milliers de parties à 2, 3, 4 et 6 bots, sur la carte d'origine,
+  une carte vide et une carte faite main, avec et sans nuit, avec et sans Dragonnoie — aucune erreur ; environ
+  4,5 nuits par partie, les quatre événements à parts égales, 3,6 duels d'arène par partie à 4 joueurs, et les six
+  genres de quêtes pris et réussis. Le jeu complet a tourné hors Unity avec des nuits forcées (tous les 2 tours, et
+  l'arène seule) et un avis de recherche pour chacun : recherche des bots (loupe), recherche humaine avec un clic
+  raté (−3 s) puis un clic sur l'évadé, et temps écoulé (fuite) — aucune exception, rien qui reste à l'écran
+  (flou, nuit, champ de la caméra, interface). La part visible de l'évadé a été mesurée au rasteriseur, de la
+  caméra du jeu, pour chaque cachette : seule sa tête dépasse, à 84 % visible en moyenne (le bas du visage est caché),
+  soit environ un tiers des pixels de sa silhouette vus de cet angle plongeant (le dessus de la tête compte beaucoup).
+  Les sosies cachés diffèrent de lui dans ce qui dépasse ; l'avis de recherche est vérifié face au modèle vu de face.
+• Relecture indépendante de la version 4 : quatre défauts trouvés, corrigés puis revérifiés sur des milliers de
+  parties — le bazar de Valcreux s'ouvrait encore après une victoire obtenue en retrouvant l'évadé sur place ; une
+  partie gagnée en pleine nuit restait au clair de lune, l'arène à l'écran ; sur une carte à deux villes, la chasse
+  pouvait se jouer dans une autre ville que celle de l'avis ; le parchemin de rappel ramenait à Valcreux sans lancer
+  la chasse. De plus, le modèle de l'arène est préparé pendant le chargement (pas d'à-coup quand elle surgit), et les
+  portraits des avis de recherche sont libérés à chaque nouvelle partie.
+• Les captures d'écran envoyées avec le paquet sont reconstruites hors Unity à partir de la scène réellement construite
+  par le jeu : le rendu dans Unity (ombres, halo, couleurs d'URP) sera un peu différent.
+
+PAS ENCORE VU DANS UNITY
+Dites-moi ce que donnent l'import du paquet et le premier lancement : erreurs éventuelles dans la Console (copiez-les
+toutes, comme la dernière fois), temps de chargement, lisibilité du plateau, rythme d'une partie, ce qui vous plaît ou non.
+Pour les outils d'édition : la mise en page réelle des fenêtres et inspecteurs (largeurs, retours à la ligne), les
+gizmos dans la vue de la scène, et le temps de construction de l'aperçu de l'île n'ont pas encore été vus dans Unity.
+Pour le Dragonnoie : la lisibilité de ses envols et le rythme qu'il donne à la partie (sa force, la fréquence de ses
+envols) sont à juger en jouant ; dites-moi s'il faut le rendre plus coriace ou plus présent.
+Pour la version 4 : l'aspect de la nuit avec le post-traitement d'URP (filtre bleuté, saturation), la force du flou de
+la ville pendant le mini-jeu, la difficulté de la recherche (taille des visages à l'écran, 30 secondes, nombre de
+sosies) et le petit temps de construction du diorama (il se bâtit pendant le zoom) sont à juger dans Unity.
