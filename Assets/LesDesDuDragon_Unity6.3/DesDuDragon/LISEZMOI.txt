@@ -1,0 +1,69 @@
+LES DÉS DU DRAGON — jeu de plateau « party game » en voxels, pour Unity 6.3
+=========================================================================
+
+INSTALLATION
+1. Créez un projet Unity 6.3 avec le modèle « Universal 3D » (URP). Le jeu marche aussi sans URP (modèle « 3D »), mais
+   sans ombres douces ni post-traitement.
+2. Copiez le dossier « DesDuDragon » dans le dossier Assets du projet. Attendez la fin de la compilation.
+3. Menu Les Dés du Dragon › Générer le jeu. Le générateur crée la scène Assets/DesDuDragon/Scenes/LesDesDuDragon.unity,
+   la met en tête de la build et règle les ombres d'URP pour voir tout le plateau ombré.
+4. Appuyez sur Play (ou menu Les Dés du Dragon › Jouer).
+Rien d'autre à importer : l'île, les héros, les monstres, les décors, l'interface, les sons et la musique sont fabriqués
+au lancement (une à deux secondes de chargement). Les paquets « uGUI » et « Input System » d'un projet Unity 6 neuf
+suffisent ; l'ancien gestionnaire d'entrées marche aussi.
+
+LE JEU
+• 2 à 6 aventuriers, humains (on se passe la souris à son tour, sur le même ordinateur) ou bots, réglés dans le salon.
+• Une boucle de 40 cases autour de l'île, à travers Valcreux, le Bois des Murmures, le Marais Putride, les Cryptes
+  d'Ombrelune et les Pics de Braise, et trois raccourcis plus courts mais plus dangereux (le dernier passe par l'antre
+  d'Ignathor, le dragon rouge).
+• À son tour : utiliser des objets du sac (potions, pièges, parchemins), puis lancer le dé (1D6) OU tendre une embuscade
+  (sa case et une case voisine : le premier qui y entre est arrêté et doit vous affronter, avec +2 pour vous).
+• Duel entre joueurs : attaque + 1D3 chacun ; le perdant perd un niveau (deux si l'écart atteint 5) et de l'or.
+• Monstres (11, dont le dragon) : attaque + 1D6 contre leur force + 1D6 ; on peut fuir.
+• Cases : Valcreux (boutique complète, soins, quêtes, +10 or et +1 XP à chaque passage), monstre, trésor, événement
+  (16 événements), malédiction, sanctuaire, marchand, taverne (quêtes), antre du dragon.
+• Quêtes : atteindre un lieu nommé du plateau ou chasser un monstre. Boutique : 6 armes, 4 armures, 3 accessoires,
+  2 potions, 4 pièges, 4 parchemins (malédiction, foudre, lenteur, rappel).
+• Six classes : Guerrier, Mage, Voleur, Clerc, Rôdeur, Barbare, chacune avec son talent.
+• On gagne des niveaux (2 XP par niveau) ; on en perd par les duels, les malédictions, les runes et les sorts.
+  Le premier au niveau 10 (réglable de 3 à 10) gagne.
+
+COMMANDES
+Souris : tout se joue aux boutons ; on peut aussi cliquer directement une case lumineuse quand il faut en choisir une.
+Molette : zoom · clic droit glissé ou flèches gauche/droite : tourner · clic milieu glissé : déplacer la vue ·
+Espace : tout le plateau · Échap : menu (pause, règles, volumes).
+
+OÙ RÉGLER
+• Équilibrage : Runtime/Regles/Donnees.cs (classes, monstres, objets, prix, XP par niveau, or de départ…).
+• Plateau : Runtime/Regles/Plateau.cs (types de cases, raccourcis). L'île suit automatiquement.
+• Bots : Runtime/Regles/IA.cs.
+• Lumière et post-traitement : Runtime/Monde/Ambiance.cs.
+• Modèles voxel : Runtime/Modeles/*.cs (héros, monstres, décors, bâtiments, figurines des cases).
+
+ORGANISATION DU CODE
+Runtime/Regles   les règles, sans Unity : la partie produit des « signaux » (pas, dé, combat, question…), les bots répondent
+                 aux mêmes questions que les humains.
+Runtime/Voxel    modèles en voxels, maillage avec occlusion ambiante, couleurs, icônes en pixel art.
+Runtime/Modeles  tous les modèles du jeu, construits en code.
+Runtime/Monde    l'île, les pions, les dés, la caméra, les effets, l'ambiance, les sons.
+Runtime/Interface l'interface (uGUI construite en code).
+Runtime/Pilote   DDJeu : le chef d'orchestre ; DDInput : souris et clavier.
+Resources        trois shaders (voxels éclairés, lueurs, effets) ; Editor : le générateur.
+
+VÉRIFIÉ AVANT LIVRAISON (hors Unity)
+• Le code compile de trois façons contre des imitations d'Unity : éditeur + Input System, jeu exporté + ancien
+  gestionnaire d'entrées, scripts d'éditeur. Les appels à l'API ont été relus contre les sources d'Unity 6.3, d'URP 17.3
+  et de l'Input System.
+• Les trois shaders compilent dans toutes leurs variantes (188 compilations) avec le compilateur DXC de Microsoft contre
+  la bibliothèque officielle d'URP 17.3, en D3D11 et en Vulkan (Forward+ compris).
+• Règles : des milliers de parties simulées entre bots, sans erreur ; une partie à 4 dure en moyenne 28 tours de table
+  (premier au niveau 10) ; chaque classe gagne entre 19 et 31 % des parties.
+• Le jeu complet (DDJeu) a tourné hors Unity, image par image : titre, salon, parties entières à 2, 4 et 6 joueurs (bots,
+  humains qui cliquent au hasard), victoire, « Rejouer », retour au menu — aucune exception, aucun objet qui s'accumule.
+• Les images jointes (apercus/) sont des captures reconstruites hors Unity à partir de la scène réellement construite
+  par le jeu : le rendu dans Unity (ombres, halo, couleurs d'URP) sera un peu différent.
+
+PAS ENCORE VU DANS UNITY
+Dites-moi ce que donnent la génération et le premier lancement : erreurs éventuelles dans la Console, temps de
+chargement, lisibilité du plateau, rythme d'une partie, ce qui vous plaît ou non.
